@@ -21,7 +21,9 @@ def rss(messages)
   end
 end
 
+GITHUB_STATUS_URI = ENV['GITHUB_STATUS_URI'] || 'https://status.github.com/api/messages.json'
+
 run lambda { |env|
-  messages = JSON.parse(Excon.get('https://status.github.com/api/messages.json', idempotent: true, expects: 200).body)
+  messages = JSON.parse(Excon.get(GITHUB_STATUS_URI, idempotent: true, expects: 200).body)
   [200, {"Content-Type" => "application/xml;charset=utf-8"}, [rss(messages)]]
 }
