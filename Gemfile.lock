@@ -1,0 +1,16 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    builder (3.2.2)
+    excon (0.32.0)
+    puma (2.8.1)
+      rack (>= 1.1, < 2.0)
+    rack (1.5.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  builder
+  excon
+  puma
